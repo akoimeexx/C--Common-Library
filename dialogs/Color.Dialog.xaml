@@ -1,0 +1,227 @@
+﻿<Window x:Name="WindowColorDialog" x:Class="Common.Dialogs.ColorDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:Common.Dialogs"
+    xmlns:conv="clr-namespace:Common.Converters"
+    mc:Ignorable="d"
+       
+    AllowDrop="False" Height="340" MaxHeight="560" MaxWidth="960" 
+    MinHeight="340" MinWidth="525" ResizeMode="CanResizeWithGrip" 
+    ShowInTaskbar="False" Title="Pick a Color" Topmost="True" Width="525" 
+    WindowStartupLocation="CenterOwner" WindowState="Normal" 
+    WindowStyle="ToolWindow">
+    <!--Icon = Resources_Common.ColorDialog_Icon.ToImageSource(),-->
+    <Window.Resources>
+        <LinearGradientBrush x:Name="rainbowGradient" x:Key="SpectrumBrush" 
+        StartPoint="0,0" EndPoint="1,0" SpreadMethod="Repeat">
+            <GradientStop Color="Red" Offset="0" />
+            <GradientStop Color="Yellow" Offset="0.2" />
+            <GradientStop Color="Chartreuse" Offset="0.35" />
+            <GradientStop Color="Cyan" Offset="0.55" />
+            <GradientStop Color="Blue" Offset="0.75" />
+            <GradientStop Color="Fuchsia" Offset="0.9" />
+            <GradientStop Color="Red" Offset="1" />
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Name="saturationGradient" x:Key="SaturationBrush"
+        StartPoint="0,0" EndPoint="0,1" SpreadMethod="Pad">
+            <GradientStop Color="#00808080" Offset="0" />
+            <GradientStop Color="#ff808080" Offset="1" />
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Name="lumenGradient" x:Key="LumenBrush" 
+        StartPoint="0,0" EndPoint="0,1" SpreadMethod="Pad">
+            <GradientStop Color="White" Offset="0" />
+            <GradientStop Color="#01ffffff" Offset="0.495" />
+            <GradientStop Color="#01000000" Offset="0.505" />
+            <GradientStop Color="Black" Offset="1" />
+        </LinearGradientBrush>
+
+        <conv:RgbChannelMultiConverter x:Key="RgbChannels" />
+        <conv:ColorToHexConverter x:Key="ColorToHex" />
+        <conv:SolidColorBrushToHexConverter x:Key="BrushToHex" />
+
+        <SolidColorBrush x:Name="currentSolidColor" x:Key="CurrentBrush">
+            <SolidColorBrush.Color>
+                <MultiBinding Converter="{StaticResource RgbChannels}">
+                    <Binding Path="Value" ElementName="sbR" Mode="TwoWay" 
+                        UpdateSourceTrigger="PropertyChanged" />
+                    <Binding Path="Value" ElementName="sbG" Mode="TwoWay" 
+                        UpdateSourceTrigger="PropertyChanged" />
+                    <Binding Path="Value" ElementName="sbB" Mode="TwoWay" 
+                        UpdateSourceTrigger="PropertyChanged" />
+                </MultiBinding>
+            </SolidColorBrush.Color>
+        </SolidColorBrush>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="116"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <ComboBox x:Name="comboPalette" PreviewMouseWheel="Palette_MouseWheel" 
+            SelectionChanged="Palette_Change" VerticalAlignment="Top" 
+            Margin="10,10,10,0" DisplayMemberPath="Key" 
+            ItemsSource="{Binding Palettes,ElementName=WindowColorDialog}" 
+            SelectedIndex="1" />
+        <ScrollViewer Margin="10,37,10,10">
+            <ItemsControl ItemsSource="{Binding 
+                ElementName=comboPalette,Path=SelectedItem.Value}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderThickness="1" 
+                        BorderBrush="{x:Static SystemColors.ControlDarkBrush}" 
+                        Height="16" Width="23">
+                            <Rectangle MouseDown="spectrum_MouseDown" 
+                            MouseMove="spectrum_MouseMove" 
+                            MouseLeave="spectrum_MouseLeave">
+                                <Rectangle.Fill>
+                                    <SolidColorBrush Color="{Binding}" />
+                                </Rectangle.Fill>
+                            </Rectangle>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel ItemHeight="20" ItemWidth="27" 
+                        ScrollViewer.CanContentScroll="True" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </ScrollViewer>
+        <Border BorderBrush="{x:Static SystemColors.ControlDarkBrush}" 
+        BorderThickness="1" Margin="10,10,52,10" Grid.Column="1">
+            <Grid MouseMove="spectrum_MouseMove" MouseDown="spectrum_MouseDown" 
+            MouseLeave="spectrum_MouseLeave">
+                <Rectangle x:Name="rectColorSpectrum" 
+                Fill="{StaticResource SpectrumBrush}"  />
+                <Rectangle x:Name="rectSaturationSpectrum" Margin="0,1,0,0" 
+                Fill="{StaticResource SaturationBrush}" />
+            </Grid>
+        </Border>
+        <Border BorderBrush="{x:Static SystemColors.ControlDarkBrush}" 
+        BorderThickness="1" Grid.Column="1" Margin="0,10,10,10" 
+        HorizontalAlignment="Right" Width="18">
+            <Grid MouseMove="lumen_MouseMove" MouseDown="lumen_MouseDown" 
+            MouseLeave="spectrum_MouseLeave">
+                <Rectangle x:Name="rectBaseSpectrum" 
+                    Fill="{x:Static SystemColors.ControlLightBrush}"/>
+                <Rectangle x:Name="rectLumenSpectrum" 
+                    Fill="{StaticResource LumenBrush}" />
+            </Grid>
+        </Border>
+
+        <Border BorderBrush="{x:Static SystemColors.ControlDarkBrush}" 
+        BorderThickness="1" Grid.Column="1" Margin="10,0,0,50" Grid.Row="1" 
+        Height="56" VerticalAlignment="Bottom" HorizontalAlignment="Left" 
+        Width="103">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Rectangle x:Name="rectPreview" 
+                Fill="{StaticResource CurrentBrush}" Grid.ColumnSpan="2"/>
+                <Rectangle x:Name="rectLivePreview" 
+                Fill="Transparent" Grid.Column="1" />
+            </Grid>
+        </Border>
+        <Label x:Name="lbChannelR" Content="Red:" HorizontalAlignment="Right" 
+        VerticalAlignment="Bottom" Grid.Column="1" Margin="0,0,97,88" 
+        Grid.Row="1" Width="44" Height="27"/>
+        <Label x:Name="lbChannelG" Content="Green:" HorizontalAlignment="Right" 
+        VerticalAlignment="Bottom" Grid.Column="1" Margin="0,0,97,60" 
+        Grid.Row="1" Height="28"/>
+        <Label x:Name="lbChannelB" Content="Blue:" VerticalAlignment="Bottom" 
+        Grid.Column="1" Margin="0,0,97,32" Grid.Row="1" 
+        HorizontalAlignment="Right" Width="44" Height="28"/>
+        <Label x:Name="lbHexcode" Content="Hex:" Grid.Column="1" 
+        Margin="0,0,97,10" Grid.Row="1" Height="26" VerticalAlignment="Bottom" 
+        HorizontalAlignment="Right" Width="44"/>
+        <TextBox x:Name="tbChannelR" Height="28" TextWrapping="Wrap" 
+        Text="{Binding Path=Value,ElementName=sbR,Mode=TwoWay}" 
+        VerticalAlignment="Bottom" Grid.Column="1" Margin="0,0,28,88" 
+        Grid.Row="1" VerticalContentAlignment="Center" 
+        HorizontalContentAlignment="Center" HorizontalAlignment="Right" 
+        Width="64"/>
+        <TextBox x:Name="tbChannelG" Height="28" TextWrapping="Wrap" 
+        Text="{Binding Path=Value,ElementName=sbG,Mode=TwoWay}" 
+        VerticalAlignment="Bottom" Grid.Column="1" Margin="0,0,28,60" 
+        Grid.Row="1" VerticalContentAlignment="Center" 
+        HorizontalContentAlignment="Center" HorizontalAlignment="Right" 
+        Width="64"/>
+        <TextBox x:Name="tbChannelB" Height="28" TextWrapping="Wrap" 
+        Text="{Binding Path=Value,ElementName=sbB,Mode=TwoWay}" Grid.Column="1" 
+        Margin="0,0,28,32" Grid.Row="1" VerticalContentAlignment="Center" 
+        HorizontalContentAlignment="Center" HorizontalAlignment="Right" 
+        Width="64" VerticalAlignment="Bottom" />
+        <TextBox x:Name="tbHexcode" Height="18" TextWrapping="Wrap" 
+        Text="{Binding 
+            Path=Fill,ElementName=rectPreview,Mode=TwoWay,
+            Converter={StaticResource BrushToHex}}" VerticalAlignment="Bottom" 
+        Grid.Column="1" Margin="0,0,10,14" Grid.Row="1" 
+        HorizontalAlignment="Right" Width="82" VerticalContentAlignment="Center"
+        HorizontalContentAlignment="Center" />
+        <Button x:Name="bScreenDropper" Content="Pick from Screen" 
+        Margin="10,0,0,10" Grid.Row="1" HorizontalAlignment="Left" Width="103" 
+        Grid.Column="1" Height="28" VerticalAlignment="Bottom"/>
+        <ScrollBar x:Name="sbR" Grid.Column="1" HorizontalAlignment="Right" 
+        Height="28" Margin="0,0,10,88" Grid.Row="1" VerticalAlignment="Bottom" 
+        Width="18" Minimum="0" Maximum="255" SmallChange="1" LargeChange="16">
+            <ScrollBar.LayoutTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="180"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ScrollBar.LayoutTransform>
+        </ScrollBar>
+        <ScrollBar x:Name="sbG" Grid.Column="1" HorizontalAlignment="Right" 
+        Height="28" Margin="0,0,10,60" Grid.Row="1" VerticalAlignment="Bottom" 
+        Width="18" Minimum="0" Maximum="255" SmallChange="1" LargeChange="16" 
+        LayoutTransform="{Binding LayoutTransform, ElementName=sbR}" />
+        <ScrollBar x:Name="sbB" Grid.Column="1" HorizontalAlignment="Right" 
+        Height="28" Margin="0,0,10,32" Grid.Row="1" VerticalAlignment="Bottom" 
+        Width="18" Minimum="0" Maximum="255" SmallChange="1" LargeChange="16" 
+        LayoutTransform="{Binding LayoutTransform, ElementName=sbR}" />
+
+
+        <Label x:Name="lbCustomSwatches" Content="Custom Palette:" 
+        Margin="10,1,10,0" Height="26" VerticalAlignment="Top" Grid.Row="1"/>
+        <ItemsControl ItemsSource="{Binding 
+            ElementName=WindowColorDialog,Path=CustomSwatches}" 
+        Margin="10,28,27,50" Grid.Row="1" >
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderThickness="1" BorderBrush="{x:Static 
+                        SystemColors.ControlDarkBrush}" Height="16" Width="23">
+                        <Rectangle MouseDown="spectrum_MouseDown" 
+                        MouseMove="spectrum_MouseMove" 
+                        MouseLeave="spectrum_MouseLeave">
+                            <Rectangle.Fill>
+                                <SolidColorBrush Color="{Binding}" />
+                            </Rectangle.Fill>
+                        </Rectangle>
+                    </Border>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel ItemHeight="20" ItemWidth="27" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
+        <Button x:Name="bOk" IsDefault="True" Content="_OK" Height="28" 
+        Margin="10,0,0,10" Grid.Row="1" VerticalAlignment="Bottom" 
+        HorizontalAlignment="Left" Width="96" Click="bOk_Click"/>
+        <Button x:Name="bCancel" IsCancel="True" Content="_Cancel" Height="28" 
+        Margin="111,0,0,10" Grid.Row="1" VerticalAlignment="Bottom" 
+        HorizontalAlignment="Left" Width="96"/>
+    </Grid>
+</Window>

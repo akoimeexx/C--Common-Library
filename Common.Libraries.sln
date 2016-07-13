@@ -1,0 +1,143 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8FFEFEFD-62D3-4F17-B53D-339714877C19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "__UNIT__", "__UNIT__\__UNIT__.csproj", "{24B58A48-C439-43F0-884F-D42224DEB95C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_meta_", "_meta_", "{83ECDE7B-B636-4EDC-9E65-5ED0CBC0987D}"
+	ProjectSection(SolutionItems) = preProject
+		_meta_\ColorDialog.resource.ico = _meta_\ColorDialog.resource.ico
+		_meta_\Commenting.codesnippits = _meta_\Commenting.codesnippits
+		_meta_\CommonLibrary.resource.ico = _meta_\CommonLibrary.resource.ico
+		_meta_\FontDialog.resource.ico = _meta_\FontDialog.resource.ico
+		_meta_\Templates.codesnippits = _meta_\Templates.codesnippits
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Commands", "Commands", "{5E5FE3E4-3EE5-4C2C-9A94-B2E32A4840A5}"
+	ProjectSection(SolutionItems) = preProject
+		commands\ApplicationCommands.class.cs = commands\ApplicationCommands.class.cs
+		commands\SystemCommands.class.cs = commands\SystemCommands.class.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Comparers", "Comparers", "{A6C0609F-0F04-498B-B12B-74619430DB45}"
+	ProjectSection(SolutionItems) = preProject
+		comparers\RegexComparer.class.cs = comparers\RegexComparer.class.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Converters", "Converters", "{C998D2E2-69F4-4541-B3EB-598EB769DDB3}"
+	ProjectSection(SolutionItems) = preProject
+		converters\AggregateConverters.class.cs = converters\AggregateConverters.class.cs
+		converters\AlignmentToAlignment.class.cs = converters\AlignmentToAlignment.class.cs
+		converters\BooleanToInverse.class.cs = converters\BooleanToInverse.class.cs
+		converters\BooleanToTransform.cs = converters\BooleanToTransform.cs
+		converters\BooleanToVisibility.base.class.cs = converters\BooleanToVisibility.base.class.cs
+		converters\ColorToHex.class.cs = converters\ColorToHex.class.cs
+		converters\DoubleToByte.class.cs = converters\DoubleToByte.class.cs
+		converters\IconToImageSource.class.cs = converters\IconToImageSource.class.cs
+		converters\PathToImageSource.class.cs = converters\PathToImageSource.class.cs
+		converters\RgbChannel.class.cs = converters\RgbChannel.class.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dialogs", "Dialogs", "{CA6F6C90-5514-4225-B0BC-54B66EADFBEE}"
+	ProjectSection(SolutionItems) = preProject
+		dialogs\Color.Dialog.xaml = dialogs\Color.Dialog.xaml
+		dialogs\Color.Dialog.xaml.cs = dialogs\Color.Dialog.xaml.cs
+		dialogs\FileDialogs.class.cs = dialogs\FileDialogs.class.cs
+		dialogs\FontDialog.class.cs = dialogs\FontDialog.class.cs
+		dialogs\Path.Dialog.xaml = dialogs\Path.Dialog.xaml
+		dialogs\Prompt.Dialog.xaml = dialogs\Prompt.Dialog.xaml
+		dialogs\Prompt.Dialog.xaml.cs = dialogs\Prompt.Dialog.xaml.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Events", "Events", "{0006AB0E-1F94-4704-8801-9DB79BF8AB98}"
+	ProjectSection(SolutionItems) = preProject
+		events\WheelEvents.class.cs = events\WheelEvents.class.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Extensions", "Extensions", "{655D5A4B-EFB2-42BA-9055-F8CBC08F6E52}"
+	ProjectSection(SolutionItems) = preProject
+		extensions\TypeExtensions.class.cs = extensions\TypeExtensions.class.cs
+		extensions\WpfExtensions.class.cs = extensions\WpfExtensions.class.cs
+		extensions\HintService.wpf.class.cs = extensions\HintService.wpf.class.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Generics", "Generics", "{78A22289-DD1B-487D-A4F3-8597BF69F725}"
+	ProjectSection(SolutionItems) = preProject
+		generics\Clock.class.cs = generics\Clock.class.cs
+		generics\Datagram.class.cs = generics\Datagram.class.cs
+		generics\DelimitedTextFile.class.cs = generics\DelimitedTextFile.class.cs
+		generics\INotifiable.interface.cs = generics\INotifiable.interface.cs
+		generics\Log.class.cs = generics\Log.class.cs
+		generics\Notifiable.class.cs = generics\Notifiable.class.cs
+		generics\NotifyIcon.class.cs = generics\NotifyIcon.class.cs
+		generics\ObservableColor.class.cs = generics\ObservableColor.class.cs
+		generics\ObservableStack.class.cs = generics\ObservableStack.class.cs
+		generics\OS.class.cs = generics\OS.class.cs
+		generics\RelayCommand.class.cs = generics\RelayCommand.class.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hardware", "Hardware", "{95BD1DE8-0B83-4F24-BB44-06D5B7F62639}"
+	ProjectSection(SolutionItems) = preProject
+		hardware\Memory.class.cs = hardware\Memory.class.cs
+		hardware\Screen.class.cs = hardware\Screen.class.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Localization", "Localization", "{41EDA0A8-D0CF-4C96-A6CF-A06E8DE1C7A7}"
+	ProjectSection(SolutionItems) = preProject
+		localization\FullName.class.cs = localization\FullName.class.cs
+		localization\States.class.cs = localization\States.class.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Xaml", "Xaml", "{328D360E-4507-4A7B-B326-7815981BFBE4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Brushes", "Brushes", "{EF91F167-106D-440E-BA94-F0E1097CA69C}"
+	ProjectSection(SolutionItems) = preProject
+		xaml\brushes\brushes.backgrounds.xaml = xaml\brushes\brushes.backgrounds.xaml
+		xaml\brushes\brushes.borders.xaml = xaml\brushes\brushes.borders.xaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Styles", "Styles", "{D80B0452-44D9-4FD3-B1F4-6CA084A7FEB1}"
+	ProjectSection(SolutionItems) = preProject
+		xaml\styles\checkbox.disabled.xaml = xaml\styles\checkbox.disabled.xaml
+		xaml\styles\checkbox.lockbox.xaml = xaml\styles\checkbox.lockbox.xaml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Library", "Common.Library\Common.Library.csproj", "{A2FAD273-59DB-4809-B69D-4E9FA6931E1F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{24B58A48-C439-43F0-884F-D42224DEB95C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24B58A48-C439-43F0-884F-D42224DEB95C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24B58A48-C439-43F0-884F-D42224DEB95C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24B58A48-C439-43F0-884F-D42224DEB95C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2FAD273-59DB-4809-B69D-4E9FA6931E1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2FAD273-59DB-4809-B69D-4E9FA6931E1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2FAD273-59DB-4809-B69D-4E9FA6931E1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2FAD273-59DB-4809-B69D-4E9FA6931E1F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{83ECDE7B-B636-4EDC-9E65-5ED0CBC0987D} = {8FFEFEFD-62D3-4F17-B53D-339714877C19}
+		{5E5FE3E4-3EE5-4C2C-9A94-B2E32A4840A5} = {8FFEFEFD-62D3-4F17-B53D-339714877C19}
+		{A6C0609F-0F04-498B-B12B-74619430DB45} = {8FFEFEFD-62D3-4F17-B53D-339714877C19}
+		{C998D2E2-69F4-4541-B3EB-598EB769DDB3} = {8FFEFEFD-62D3-4F17-B53D-339714877C19}
+		{CA6F6C90-5514-4225-B0BC-54B66EADFBEE} = {8FFEFEFD-62D3-4F17-B53D-339714877C19}
+		{0006AB0E-1F94-4704-8801-9DB79BF8AB98} = {8FFEFEFD-62D3-4F17-B53D-339714877C19}
+		{655D5A4B-EFB2-42BA-9055-F8CBC08F6E52} = {8FFEFEFD-62D3-4F17-B53D-339714877C19}
+		{78A22289-DD1B-487D-A4F3-8597BF69F725} = {8FFEFEFD-62D3-4F17-B53D-339714877C19}
+		{95BD1DE8-0B83-4F24-BB44-06D5B7F62639} = {8FFEFEFD-62D3-4F17-B53D-339714877C19}
+		{41EDA0A8-D0CF-4C96-A6CF-A06E8DE1C7A7} = {8FFEFEFD-62D3-4F17-B53D-339714877C19}
+		{328D360E-4507-4A7B-B326-7815981BFBE4} = {8FFEFEFD-62D3-4F17-B53D-339714877C19}
+		{EF91F167-106D-440E-BA94-F0E1097CA69C} = {328D360E-4507-4A7B-B326-7815981BFBE4}
+		{D80B0452-44D9-4FD3-B1F4-6CA084A7FEB1} = {328D360E-4507-4A7B-B326-7815981BFBE4}
+	EndGlobalSection
+EndGlobal

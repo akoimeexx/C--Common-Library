@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[Users] (
+	[pk] NVARCHAR(72) NOT NULL 
+        UNIQUE CLUSTERED ([pk] ASC) PRIMARY KEY CLUSTERED ([pk] ASC) 
+        DEFAULT NEWID(), 
+    [identity] NVARCHAR(254) NOT NULL, 
+    [email] NVARCHAR(254) NULL, 
+);
+
+INSERT INTO [dbo].[Users] (
+    [pk], [identity]
+) VALUES (
+    N'01234567-8901-2345-6789-012345678901', N'ottomatic'
+);

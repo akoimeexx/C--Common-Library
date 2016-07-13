@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets
+    xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>80-Character Column Header</Title>
+            <Author>
+                Johnathan Graham McKnight &lt;akoimeexx@gmail.com&gt;
+            </Author>
+            <Description>
+                Provides an 80-Character Column Header.
+            </Description>
+            <Shortcut>80C</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CPP,CSharp,Javascript">
+<![CDATA[/**      1         2         3         4         5         6         7         8
+ * 45678901234567890123456789012345678901234567890123456789012345678901234567890
+ * 
+ */
+$end$]]>
+            </Code>
+            <Code Language="HTML,XML">
+<![CDATA[<!--     1         2         3         4         5         6         7         8
+ | 45678901234567890123456789012345678901234567890123456789012345678901234567890
+ |
+ -->
+$end$]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Default Source File Header</Title>
+            <Author>
+                Johnathan Graham McKnight &lt;akoimeexx@gmail.com&gt;
+            </Author>
+            <Description>
+                Provides an 80-Character Column Header, Application Information
+                Block, Compile Instruction Block, and BSD License.
+            </Description>
+            <Shortcut>HEADER</Shortcut>
+        </Header>
+        <Snippet>
+            <Declarations>
+                <Literal>
+                    <ID>PROJECT</ID>
+                    <ToolTip>Friendly Project or Application Name</ToolTip>
+                    <Default>MyApplication</Default>
+                </Literal>
+                <Literal><Default>It destroys Grues!</Default><ID>SHORTDESC</ID>
+                    <ToolTip>
+                        A short (sub-80 character) description of the project, 
+                        application, or source file purpose.
+                    </ToolTip>
+                </Literal>
+                <Literal><Default>v0.0.1</Default><ID>VERSION</ID>
+                    <ToolTip>Project, Application, or File Version</ToolTip>
+                </Literal>
+                <Literal>
+                    <Default>Otto Mattic</Default><ID>AUTHOR</ID>
+                    <ToolTip>Author Full Name</ToolTip>
+                </Literal>
+                <Literal><Default>otto@mattic.com</Default><ID>EMAIL</ID>
+                    <ToolTip>
+                        Contact E-mail for the Author; or for the project, 
+                        application, or source file.
+                    </ToolTip>
+                </Literal>
+                <Literal><Default>2015</Default><ID>YEAR</ID>
+                    <Function>DateTime.Now('Y')</Function>
+                    <ToolTip>Copyright Year</ToolTip>
+                </Literal>
+
+            </Declarations>
+            <Code Language="CPP,CSharp,Javascript">
+<![CDATA[/**      1         2         3         4         5         6         7         8
+ * 45678901234567890123456789012345678901234567890123456789012345678901234567890
+ *
+ * $PROJECT$: $SHORTDESC$
+ *    $VERSION$
+ *    $AUTHOR$ <$EMAIL$>
+ *
+ *
+ * Copyright (c) $YEAR$, $AUTHOR$
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice,
+ * this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ * this list of conditions and the following disclaimer in the documentation
+ * and/or other materials provided with the distribution.
+ *
+ * 3. Neither the name of the copyright holder nor the names of its contributors
+ * may be used to endorse or promote products derived from this software without
+ * specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ */
+$end$]]>
+            </Code>
+            <Code Language="HTML,XML">
+<![CDATA[<!--     1         2         3         4         5         6         7         8
+ | 45678901234567890123456789012345678901234567890123456789012345678901234567890
+ |
+ | $PROJECT$: $SHORTDESC$
+ |    $VERSION$
+ |    $AUTHOR$ <$EMAIL$>
+ |
+ |
+ | Copyright (c) $YEAR$, $AUTHOR$
+ | All rights reserved.
+ |
+ | Redistribution and use in source and binary forms, with or without
+ | modification, are permitted provided that the following conditions are met:
+ |
+ | 1. Redistributions of source code must retain the above copyright notice,
+ | this list of conditions and the following disclaimer.
+ |
+ | 2. Redistributions in binary form must reproduce the above copyright notice,
+ | this list of conditions and the following disclaimer in the documentation
+ | and/or other materials provided with the distribution.
+ |
+ | 3. Neither the name of the copyright holder nor the names of its contributors
+ | may be used to endorse or promote products derived from this software without
+ | specific prior written permission.
+ |
+ | THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ | AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ | IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ | ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+ | LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ | CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ | SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ | INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ | CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ | ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ | POSSIBILITY OF SUCH DAMAGE.
+ -->
+$end$]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,159 @@
+<!--     1         2         3         4         5         6         7         8
+ | 45678901234567890123456789012345678901234567890123456789012345678901234567890
+ |
+ | Common.Brushes: Common library xaml, background brushes, v.0.0.1
+ |    Johnathan Graham McKnight <akoimeexx@gmail.com>
+ |
+ |
+ | Copyright (c) 2015, Johnathan Graham McKnight
+ | All rights reserved.
+ |
+ | Redistribution and use in source and binary forms, with or without
+ | modification, are permitted provided that the following conditions are met:
+ |
+ | 1. Redistributions of source code must retain the above copyright notice,
+ | this list of conditions and the following disclaimer.
+ |
+ | 2. Redistributions in binary form must reproduce the above copyright notice,
+ | this list of conditions and the following disclaimer in the documentation
+ | and/or other materials provided with the distribution.
+ |
+ | 3. Neither the name of the copyright holder nor the names of its contributors
+ | may be used to endorse or promote products derived from this software without
+ | specific prior written permission.
+ |
+ | THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ | AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ | IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ | ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+ | LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ | CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ | SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ | INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ | CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ | ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ | POSSIBILITY OF SUCH DAMAGE.
+ \-->
+<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- Pen & Brush Settings, unifies where we keep color settings -->
+    <Pen x:Key="PenForeground"
+        Brush="{Binding hexcontext,FallbackValue='#80000000'}"
+        Thickness="{Binding tContext,FallbackValue=1}" />
+    <Pen x:Key="PenBackground"
+        Brush="{Binding hexcontext,FallbackValue='#80000000'}"
+        Thickness="{Binding tContext,FallbackValue=1}" />
+    <SolidColorBrush x:Key="BrushForeground"
+        Color="{Binding hexcontext,FallbackValue='#40000000'}" />
+    <SolidColorBrush x:Key="BrushBackground"
+        Color="{Binding hexcontext,FallbackValue='#40000000'}" />
+    <!-- /Pen & Brush Settings -->
+    <!-- Grid Brush Elements -->
+    <GeometryDrawing x:Key="Grid4px" Pen="{StaticResource PenBackground}"
+        Geometry="F0M0,0h4ZV4Z" />
+    <GeometryDrawing x:Key="Grid8px" Pen="{StaticResource PenBackground}"
+        Geometry="F0M0,0V8ZH8Z" />
+    <GeometryDrawing x:Key="Grid16px" Pen="{StaticResource PenBackground}"
+        Geometry="F0M0,0V16ZH16Z" />
+    <GeometryDrawing x:Key="Grid32px" Pen="{StaticResource PenBackground}"
+        Geometry="F0M0,0V32ZH32Z" />
+    <GeometryDrawing x:Key="Grid64px" Pen="{StaticResource PenBackground}"
+        Geometry="F0M0,0V64ZH64Z" />
+
+    <DrawingBrush x:Key="bgGridXS" AlignmentX="Center" AlignmentY="Center"
+        Stretch="None" TileMode="Tile" Viewport="0,0,4,4"
+        ViewportUnits="Absolute" Drawing="{StaticResource Grid4px}" />
+    <DrawingBrush x:Key="bgGridS" AlignmentX="Center" AlignmentY="Center"
+        Stretch="None" TileMode="Tile" Viewport="0,0,8,8"
+        ViewportUnits="Absolute" Drawing="{StaticResource Grid8px}" />
+    <DrawingBrush x:Key="bgGridM" AlignmentX="Center" AlignmentY="Center"
+        Stretch="None" TileMode="Tile" Viewport="0,0,16,16"
+        ViewportUnits="Absolute" Drawing="{StaticResource Grid16px}" />
+    <DrawingBrush x:Key="bgGridL" AlignmentX="Center" AlignmentY="Center"
+        Stretch="None" TileMode="Tile" Viewport="0,0,32,32"
+        ViewportUnits="Absolute" Drawing="{StaticResource Grid32px}" />
+    <DrawingBrush x:Key="bgGridXL" AlignmentX="Center" AlignmentY="Center"
+        Stretch="None" TileMode="Tile" Viewport="0,0,64,64"
+        ViewportUnits="Absolute" Drawing="{StaticResource Grid64px}" />
+
+    <DrawingBrush x:Key="bgGridQuadrants" AlignmentX="Center"
+        AlignmentY="Center" Stretch="None" TileMode="Tile" Viewport="0,0,32,32"
+        ViewportUnits="Absolute">
+      <DrawingBrush.Drawing>
+        <DrawingGroup>
+          <GeometryDrawing Brush="{StaticResource bgGridXS}">
+            <GeometryDrawing.Geometry>
+              <RectangleGeometry Rect="0,0,32,32" />
+            </GeometryDrawing.Geometry>
+          </GeometryDrawing>
+          <GeometryDrawing Brush="{StaticResource bgGridS}">
+            <GeometryDrawing.Geometry>
+              <RectangleGeometry Rect="0,0,32,32" />
+            </GeometryDrawing.Geometry>
+          </GeometryDrawing>
+          <GeometryDrawing Brush="{StaticResource bgGridM}">
+            <GeometryDrawing.Geometry>
+              <RectangleGeometry Rect="0,0,32,32" />
+            </GeometryDrawing.Geometry>
+          </GeometryDrawing>
+          <GeometryDrawing Brush="{StaticResource bgGridL}">
+            <GeometryDrawing.Geometry>
+              <RectangleGeometry Rect="0,0,32,32" />
+            </GeometryDrawing.Geometry>
+          </GeometryDrawing>
+        </DrawingGroup>
+      </DrawingBrush.Drawing>
+    </DrawingBrush>
+    <!-- /Grid Brush Elements -->
+    <!-- Checkerboard Brush Elements -->
+    <GeometryDrawing x:Key="dither" Geometry="F0M0,0h1v2h1v-1h-2Z"
+        Brush="{StaticResource BrushBackground}" />
+    <GeometryDrawing x:Key="checkerS" Geometry="F0M0,0h4v8h4v-4h-8Z"
+        Brush="{StaticResource BrushBackground}" />
+    <GeometryDrawing x:Key="checkerM" Geometry="F0M0,0h8v16h8v-8h-16Z"
+        Brush="{StaticResource BrushBackground}" />
+    <GeometryDrawing x:Key="checkerL" Geometry="F0M0,0h16v32h16v-16h-32Z"
+        Brush="{StaticResource BrushBackground}" />
+
+    <DrawingBrush x:Key="bgDithered" Stretch="None" TileMode="Tile"
+        Viewport="0,0,2,2" ViewportUnits="Absolute"
+        Drawing="{StaticResource dither}" />
+    <DrawingBrush x:Key="bgCheckeredS" Stretch="None" TileMode="Tile"
+        Viewport="0,0,8,8" ViewportUnits="Absolute"
+        Drawing="{StaticResource checkerS}" />
+    <DrawingBrush x:Key="bgCheckeredM" Stretch="None" TileMode="Tile"
+        Viewport="0,0,16,16" ViewportUnits="Absolute"
+        Drawing="{StaticResource checkerM}" />
+    <DrawingBrush x:Key="bgCheckeredL" Stretch="None" TileMode="Tile"
+        Viewport="0,0,32,32" ViewportUnits="Absolute"
+        Drawing="{StaticResource checkerL}" />
+    <!-- /Checkerboard Brush Elements -->
+  </ResourceDictionary>
+  <!-- Usage:
+        <Rectangle Fill="{StaticResource bgGridQuadrants}" Margin="23" />
+        <Grid Margin="23" Background="#FFFFFFFF">
+            <Rectangle Fill="{StaticResource bgDithered}" 
+                HorizontalAlignment="Left" Width="134" Height="84" 
+                VerticalAlignment="Top" />
+            <Rectangle Fill="{StaticResource bgCheckeredS}" Height="42" 
+                VerticalAlignment="Top" Margin="134,0" />
+            <Rectangle Fill="{StaticResource bgCheckeredM}" Margin="0,42,134,84"
+                HorizontalAlignment="Right" Width="67" />
+            <Rectangle Fill="{StaticResource bgCheckeredL}" Margin="134,42,0,84"
+                HorizontalAlignment="Left" Width="67" />
+
+            <Rectangle Fill="{StaticResource bgGridXS}" Height="84" Width="134" 
+                VerticalAlignment="Top" HorizontalAlignment="Right" />
+            <Rectangle Fill="{StaticResource bgGridS}" Height="84" Width="67" 
+                VerticalAlignment="Bottom" HorizontalAlignment="Right" />
+            <Rectangle Fill="{StaticResource bgGridM}" Height="42" Width="67" 
+                Margin="0,0,67,0" HorizontalAlignment="Right" 
+                VerticalAlignment="Bottom" />
+            <Rectangle Fill="{StaticResource bgGridL}" Height="42" Width="67" 
+                Margin="0,0,67,42" HorizontalAlignment="Right" 
+                VerticalAlignment="Bottom" />
+            <Rectangle Fill="{StaticResource bgGridQuadrants}" Height="84" 
+            Margin="134,0" VerticalAlignment="Bottom" />
+        </Grid>
+-->

@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A2FAD273-59DB-4809-B69D-4E9FA6931E1F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Common</RootNamespace>
+    <AssemblyName>Common.Library</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\__DATA__\*.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Common.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <!-- Commands -->
+    <Compile Include="..\commands\*.cs" />
+    <!-- Comparers -->
+    <Compile Include="..\comparers\*.cs" />
+    <!-- Converters -->
+    <Compile Include="..\converters\*.cs" />
+    <!--
+    <Compile Include="..\converters\AggregateConverters.class.cs" />
+    <Compile Include="..\converters\BooleanToInverse.class.cs" />
+    <Compile Include="..\converters\BooleanToTransform.class.cs" />
+    <Compile Include="..\converters\BooleanToVisibility.base.class.cs" />
+    <Compile Include="..\converters\ColorToHex.class.cs" />
+    <Compile Include="..\converters\DoubleToByte.class.cs" />
+    <Compile Include="..\converters\IconToImageSource.class.cs" />
+-->
+    <!-- Dialogs -->
+    <Page Include="..\dialogs\Color.Dialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="..\dialogs\Color.Dialog.xaml.cs">
+      <DependentUpon>Color.Dialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\dialogs\FontDialog.class.cs" />
+    <Page Include="..\dialogs\Path.Dialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="..\dialogs\FileDialogs.class.cs">
+      <DependentUpon>Path.Dialog.xaml</DependentUpon>
+    </Compile>
+    <Page Include="..\dialogs\Prompt.Dialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="..\dialogs\Prompt.Dialog.xaml.cs">
+      <DependentUpon>Prompt.Dialog.xaml</DependentUpon>
+    </Compile>
+    <!-- Events -->
+    <Compile Include="..\events\*.cs" />
+    <!-- Extensions -->
+    <Compile Include="..\extensions\*.cs" />
+    <!-- Generics -->
+    <Compile Include="..\generics\*.cs" />
+    <!--
+    <Compile Include="..\generics\Datagram.class.cs" />
+    <Compile Include="..\generics\Notifiable.class.cs" />
+    <Compile Include="..\generics\NotifyIcon.class.cs" />
+    <Compile Include="..\generics\ObservableColor.class.cs" />
+    <Compile Include="..\generics\OS.class.cs" />
+    <Compile Include="..\generics\RelayCommand.class.cs" />
+-->
+    <!-- Hardware -->
+    <Compile Include="..\hardware\*.cs" />
+    <!-- Localization -->
+    <Compile Include="..\localization\*.cs" />
+    <!-- Resources -->
+    <Compile Include="..\__DATA__\Resources.Common.Designer.cs">
+      <Link>Resources.Common.Designer.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.Common.resx</DependentUpon>
+    </Compile>
+    <Page Include="..\xaml\brushes\brushes.backgrounds.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="..\xaml\brushes\brushes.borders.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="..\xaml\styles\checkbox.disabled.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="..\xaml\styles\checkbox.lockbox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

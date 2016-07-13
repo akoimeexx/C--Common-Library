@@ -1,0 +1,106 @@
+CREATE TABLE [dbo].[States] (
+	[pk] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](64) NOT NULL,
+	[Abbreviation] [nvarchar](8) NOT NULL,
+	[Latitude] [decimal](9, 6) NULL,
+	[Longitude] [decimal](9, 6) NULL,
+    
+    CONSTRAINT [PK_States] PRIMARY KEY CLUSTERED (
+        [pk] ASC
+    ), 
+    CONSTRAINT [Unique_Names] UNIQUE NONCLUSTERED (
+        [Name] ASC
+    ), 
+    CONSTRAINT [Unique_Abbreviations] UNIQUE NONCLUSTERED (
+        [Abbreviation] ASC
+    ) 
+) 
+
+GO
+
+EXEC sys.sp_addextendedproperty 
+    @name=N'MS_Description', 
+    @value=N'ftp://ftp2.census.gov/geo/docs/reference/state.txt' , 
+    @level0type=N'SCHEMA',
+    @level0name=N'dbo', 
+    @level1type=N'TABLE',
+    @level1name=N'States'
+
+GO
+
+SET IDENTITY_INSERT [dbo].[States] ON;
+
+GO
+
+INSERT INTO [dbo].[States] 
+    ([pk], [Name], [Abbreviation])
+VALUES
+    (0, N'Unknown State', N'--');
+
+GO
+
+SET IDENTITY_INSERT [dbo].[States] OFF;
+
+GO
+
+INSERT INTO [dbo].[States]
+    ([Name], [Abbreviation], [Latitude], [Longitude]) 
+VALUES
+    (N'Alabama', N'AL', 32.806671, -86.791130), 
+    (N'Alaska', N'AK', 61.370716, -152.404419), 
+    (N'Arizona', N'AZ', 33.729759, -111.431221), 
+    (N'Arkansas', N'AR', 34.969704, -92.373123), 
+    (N'California', N'CA', 36.116203, -119.681564), 
+    (N'Colorado', N'CO', 39.059811, -105.311104), 
+    (N'Connecticut', N'CT', 41.597782, -72.755371), 
+    (N'Delaware', N'DE', 39.318523, -75.507141), 
+    (N'Florida', N'FL', 27.766279, -81.686783), 
+    (N'Georgia', N'GA', 33.040619, -83.643074), 
+    (N'Hawaii', N'HI', 21.094318, -157.498337), 
+    (N'Idaho', N'ID', 44.240459, -114.478828), 
+    (N'Illinois', N'IL', 40.349457, -88.986137), 
+    (N'Indiana', N'IN', 39.849426, -86.258278), 
+    (N'Iowa', N'IA', 42.011539, -93.210526), 
+    (N'Kansas', N'KS', 38.526600, -96.726486), 
+    (N'Kentucky', N'KY', 37.668140, -84.670067), 
+    (N'Louisiana', N'LA', 31.169546, -91.867805), 
+    (N'Maine', N'ME', 44.693947, -69.381927), 
+    (N'Maryland', N'MD', 39.063946, -76.802101), 
+    (N'Massachusetts', N'MA', 42.230171, -71.530106), 
+    (N'Michigan', N'MI', 43.326618, -84.536095), 
+    (N'Minnesota', N'MN', 45.694454, -93.900192), 
+    (N'Mississippi', N'MS', 32.741646, -89.678696), 
+    (N'Missouri', N'MO', 38.456085, -92.288368), 
+    (N'Montana', N'MT', 46.921925, -110.454353), 
+    (N'Nebraska', N'NE', 41.125370, -98.268082), 
+    (N'Nevada', N'NV', 38.313515, -117.055374), 
+    (N'New Hampshire', N'NH', 43.452492, -71.563896), 
+    (N'New Jersey', N'NJ', 40.298904, -74.521011), 
+    (N'New Mexico', N'NM', 34.840515, -106.248482), 
+    (N'New York', N'NY', 42.165726, -74.948051), 
+    (N'North Carolina', N'NC', 35.630066, -79.806419), 
+    (N'North Dakota', N'ND', 47.528912, -99.784012), 
+    (N'Ohio', N'OH', 40.388783, -82.764915), 
+    (N'Oklahoma', N'OK', 35.565342, -96.928917), 
+    (N'Oregon', N'OR', 44.572021, -122.070938), 
+    (N'Pennsylvania', N'PA', 40.590752, -77.209755), 
+    (N'Rhode Island', N'RI', 41.680893, -71.511780), 
+    (N'South Carolina', N'SC', 33.856892, -80.945007), 
+    (N'South Dakota', N'SD', 44.299782, -99.438828), 
+    (N'Tennessee', N'TN', 35.747845, -86.692345), 
+    (N'Texas', N'TX', 31.054487, -97.563461), 
+    (N'Utah', N'UT', 40.150032, -111.862434), 
+    (N'Vermont', N'VT', 44.045876, -72.710686), 
+    (N'Virginia', N'VA', 37.769337, -78.169968), 
+    (N'Washington', N'WA', 47.400902, -121.490494), 
+    (N'West Virginia', N'WV', 38.491226, -80.954453), 
+    (N'Wisconsin', N'WI', 44.268543, -89.616508), 
+    (N'Wyoming', N'WY', 42.755966, -107.302490), 
+
+    (N'District of Columbia', N'DC', 38.897438, -77.026817), 
+    (N'American Samoa', N'AS', NULL, NULL), 
+    (N'Guam', N'GU', NULL, NULL), 
+    (N'Puerto Rico', N'PR', NULL, NULL), 
+    (N'Northern Mariana Islands', N'MP', NULL, NULL), 
+    (N'U.S. Minor Outlying Islands', N'UM', NULL, NULL), 
+    (N'U.S. Virgin Islands', N'VI', NULL, NULL)
