@@ -109,7 +109,24 @@ namespace Common.Extensions {
 //            return false;
 //        }
     }
-
+    
+    /**
+     * Grabs the index for each max value in the list, and returns a list of 
+     * indices
+     */
+    public static partial class EnumerableExtensions {
+        public static List<int> MaxIndices<T>(this IEnumerable<T> o) {
+            List<int> indices = new List<int>();
+            int index = 0;
+            foreach (var t in o.ToList<T>()) {
+                if (object.Equals(t, o.Max()))
+                    indices.Add(index);
+                index++;
+            }
+            return indices;
+        }
+    }
+    
     public static partial class FileExtensions {
         [StructLayout(LayoutKind.Sequential)]
         private struct ShFileInfo {
