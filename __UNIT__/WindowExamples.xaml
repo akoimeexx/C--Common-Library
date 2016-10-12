@@ -84,6 +84,10 @@
                 <MenuItem Header="NotificationIcon()" 
                     Click="MenuCreateIcon_Click" />
             </MenuItem>
+            <MenuItem Header="_Hardware">
+                <MenuItem Header="Global Mouse Hook..." 
+                Click="MenuGlobalMouseHook_Click"/>
+            </MenuItem>
             <MenuItem Header="_Localization">
                 <MenuItem Header="FullName.ToString()" 
                     Click="MenuFullname_Click" />

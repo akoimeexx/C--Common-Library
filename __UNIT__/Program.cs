@@ -246,7 +246,16 @@ namespace __UNIT__ {
             if (pd.ShowDialog() == true)
                 MessageBox.Show(String.Format("Prompt Input: {0}", pd.Result));
         }
-#endregion Interface Methods
+        public void MenuGlobalMouseHook_Click(object o, RoutedEventArgs e) {
+            Common.Hardware.MouseHook MouseHook = new MouseHook();
+            MouseHook.GlobalClick += MouseHook_GlobalClick;
+        }
+
+        private void MouseHook_GlobalClick(object sender, MouseHook.GlobalMouseEventArgs e) {
+            Console.WriteLine("Global Mouse Event Triggered!");
+        }
+
+        #endregion Interface Methods
     }
 
 

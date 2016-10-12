@@ -82,6 +82,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hardware", "Hardware", "{95BD1DE8-0B83-4F24-BB44-06D5B7F62639}"
 	ProjectSection(SolutionItems) = preProject
 		hardware\Memory.class.cs = hardware\Memory.class.cs
+		hardware\Mouse.class.cs = hardware\Mouse.class.cs
 		hardware\Screen.class.cs = hardware\Screen.class.cs
 	EndProjectSection
 EndProject

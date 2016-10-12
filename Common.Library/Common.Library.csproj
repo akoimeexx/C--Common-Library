@@ -92,7 +92,7 @@
     <Compile Include="..\extensions\*.cs" />
     <!-- Generics -->
     <Compile Include="..\generics\*.cs" />
-    <!--
+<!--
     <Compile Include="..\generics\Datagram.class.cs" />
     <Compile Include="..\generics\Notifiable.class.cs" />
     <Compile Include="..\generics\NotifyIcon.class.cs" />

@@ -64,13 +64,21 @@ namespace Common.Extensions {
             throw new NotSupportedException("TODO: Fix this.");
             var hwnd = new WindowInteropHelper(w).EnsureHandle();
             var wndMask = GetWindowLong(hwnd, GWL_STYLE);
-            SetWindowLong(hwnd, GWL_STYLE, (int)(wndMask | (WS_EX_LAYERED | WS_EX_TRANSPARENT)));
+            SetWindowLong(
+                hwnd, 
+                GWL_STYLE, 
+                (int)(wndMask | (WS_EX_LAYERED | WS_EX_TRANSPARENT))
+            );
         }
         public static void EnableHitTesting(this Window w) {
             throw new NotSupportedException("TODO: Fix this.");
             var hwnd = new WindowInteropHelper(w).EnsureHandle();
             var wndMask = GetWindowLong(hwnd, GWL_STYLE);
-            SetWindowLong(hwnd, GWL_STYLE, (int)(wndMask & ~(WS_EX_LAYERED | WS_EX_TRANSPARENT)));
+            SetWindowLong(
+                hwnd, 
+                GWL_STYLE, 
+                (int)(wndMask & ~(WS_EX_LAYERED | WS_EX_TRANSPARENT))
+            );
         }
         public static void DisableMaximize(this Window w) {
             var hwnd = new WindowInteropHelper(w).EnsureHandle();
